@@ -14,13 +14,13 @@ int mychoice = scan.nextInt();
 try{ 
     if(mychoice < 0 || mychoice > 4){
         scan.close();
-        throw new Exception("There is no name with that index " + mychoice + " Invalid input, please try to input another index number!" );
+        throw new NewException( );
     }else{
         System.out.println(a[mychoice]);
     }
 
-}catch(Exception e){
-   System.out.println(e.getMessage());//display error message
+}catch(NewException e){
+   e.myError();//display error message
    scan.close();
 
     }
