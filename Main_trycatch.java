@@ -21,8 +21,7 @@ try{
 
 }catch(NewException e){
    e.myError();//display error message
-   scan.close();
-
     }
+    scan.close();
   }
 }
