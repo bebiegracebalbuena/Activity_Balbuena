@@ -1,6 +1,6 @@
 package Activity_Balbuena;
 
-public class NewException extends Exception{
+public class myNewException extends Exception{
 
     public void myError(){
 
