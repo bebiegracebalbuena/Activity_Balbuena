@@ -3,6 +3,9 @@ import java.util.Iterator;
 import java.util.List;
 
 public class Main_generic {
+    /**
+     * @param args
+     */
     public static void main(String[] args){
 
         List<Person> person = new ArrayList<Person>();//use class data types
@@ -31,6 +34,7 @@ public class Main_generic {
        Iterator<Person> ite = person.iterator();
 
        while(ite.hasNext()){
+
         System.out.println("Hello my name is "+ ite.next().getName() + " and I am " + ite.next().getAge() + " years old.");
        }
     }
