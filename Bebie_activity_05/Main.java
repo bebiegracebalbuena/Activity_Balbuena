@@ -32,23 +32,32 @@ public class Main{
 
     System.out.println("_______________________________________________");
     Iterator<Person> ite = person.iterator();
+    
 
     try{ 
         if(mychoice == 1){
-
+         
             System.out.println("Input 1 for Name? Input 2 for age: ");
             Integer fobject = scan.nextInt();
     
             try {
                 if(fobject == 1){
+                   
                     System.out.println("+++++++++List of Names+++++++++");
                     System.out.println("----------------------------");
-                    System.out.println("Name: "+ite.next().getName());
+                    while(ite.hasNext()){ 
+                        Person temp = ite.next();
+                    System.out.println("Name: "+temp.getName());
+                    }
                 
                 }else if(fobject == 2){
+                   
                     System.out.println("+++++++++AGE List+++++++++");
                     System.out.println("----------------------------");
-                    System.out.println("Age: "+ite.next().getAge());
+                    while(ite.hasNext()){ 
+                        Person temp = ite.next();   
+                    System.out.println("Age: "+temp.getAge());
+                    }
                 }else{
                 scan.close();
                 throw new bebieNewException( );
@@ -67,8 +76,9 @@ public class Main{
         
     else if(mychoice == 2){
         System.out.println("====Persons' Name and Age===");
-        while(ite.hasNext()){
-        System.out.println("Name: " + ite.next().getName() + "___" + "Age: " + ite.next().getAge());
+        while(ite.hasNext()){  
+         Person temp = ite.next();
+        System.out.println("Name: " + temp.getName() + "___" + "Age: " + temp.getAge());
         }
 
     }else{
