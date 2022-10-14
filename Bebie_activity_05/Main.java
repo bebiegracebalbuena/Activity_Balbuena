@@ -2,103 +2,112 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import ggfilfder.Person;
 
 public class Main{
-    /**
-     * @param args
-     */
-    public static void main(String[] args){
 
-    Scanner scan = new Scanner(System.in);
-    System.out.println("How much object to create?: ");
-    Integer mychoice = scan.nextInt();
+    public static void main(String args[]) {
+        Scanner scan = new Scanner(System.in);
+        int capacity;
+        char choices;
+        boolean mainLoop = true;
+        
+        while (true) {
+            System.out.println("===============================");
+            System.out.println("===============================");
+   
+            System.out.println("Welcome Back User!!!\n");
+            System.out.println("===============================");
+     
+            System.out.print("\nType to start: ");
 
-    List<Person> person = new ArrayList<Person>();//use class data types
+            choices = scan.next().charAt(0);
 
-    person.add(new Person("Bebie Grace Balbuena", 21));
-    person.add(new Person("Jimwil Balbuena", 14));
-    person.add(new Person("Ryan Dexter Balbuena", 16));
-    person.add(new Person("Chriscel Balbuena", 17));
-    person.add(new Person("John Roy Balbuena", 18));
-    person.add(new Person("Jeah Mea Balbuena", 24));
-    person.add(new Person("Randelle Balbuena", 27));
-    person.add(new Person("Charmine Fate Balbuena", 26));
-    person.add(new Person("Reymart Balbuena", 29));
-    person.add(new Person("Reymart Jr. Balbuena",9));
-    person.add(new Person("Angelica Baloca", 8));
-    person.add(new Person("Jessa Marie Saranillo", 6));
-    person.add(new Person("Princess Mara Ministerio", 10));
-    person.add(new Person("Kaila Marie Ministerio", 7));
+        do {
+            System.out.print("How many objects do you want to create?:");
+            int objectnumber =scan.nextInt();      
+            if(objectnumber > 0){
 
-    System.out.println("_______________________________________________");
-    Iterator<Person> ite = person.iterator();
-    
-
-    try{ 
-        if(mychoice == 1){
-         
-            System.out.println("Input 1 for Name? Input 2 for age: ");
-            Integer fobject = scan.nextInt();
-    
-            try {
-                if(fobject == 1){
                    
-                    System.out.println("+++++++++List of Names+++++++++");
-                    System.out.println("----------------------------");
-                    while(ite.hasNext()){ 
-                        Person temp = ite.next();
-                    System.out.println("Name: "+temp.getName());
-                    }
+                System.out.println("-------Create " + objectnumber + " objects-------");
+
+                System.out.println("======Create the first object=====");
+           
+           
+
+                    List <Person> persons = new ArrayList<Person>();
+                    // Iterator<Person> ite = persons.iterator();
                 
-                }else if(fobject == 2){
-                   
-                    System.out.println("+++++++++AGE List+++++++++");
-                    System.out.println("----------------------------");
-                    while(ite.hasNext()){ 
-                        Person temp = ite.next();   
-                    System.out.println("Age: "+temp.getAge());
-                    }
-                }else{
-                scan.close();
-                throw new bebieNewException( );
+                    // String bebie = "";
+                    // int numb = Integer.parseInt(bebie);
 
-                }
-                // System.out.println("Input 1 for Name? Input 2 for age: ");
-                // fobject = scan.nextInt();
+                    for (int i = 0; i<objectnumber; i ++){
+
+
+
+                try{
                     
-            
-            } catch (bebieNewException e) {
-                e.myError1();
+                    System.out.println(  i + " Input Name:");
+                    scan.nextLine();
+                    String name = scan.nextLine(); // Get the users name
+
+                    System.out.println( i + " Input Age:");
+
+                    int  age = scan.nextInt();  // Get the users age
+
+                  
                 
-            }
-        }
+                    if (age < 0){
+                        throw new newException("Invalid input for age! Negative is not allowed!");    
+                    }
+                    
+                    Pattern pat= Pattern.compile("[!@-]");
+                    Matcher matcher= pat.matcher(name);
 
-        
-    else if(mychoice == 2){
-        System.out.println("====Persons' Name and Age===");
-        while(ite.hasNext()){  
-         Person temp = ite.next();
-        System.out.println("Name: " + temp.getName() + "___" + "Age: " + temp.getAge());
-        }
+                    if (matcher.find()){
+                        throw new newException("Invalid Input! No special characters allowed! Please input a String with no spacial characters!");    
+                    }
 
-    }else{
-        scan.close();
-        throw new bebieNewException( );
-      
-    }
-    // System.out.println("How much object to create?: ");
-    // mychoice = scan.nextInt();
-        }
+                    Person pers = new Person(name,age);
+                    persons.add(pers);
+                    
 
-    catch(bebieNewException e){
-        
-    e.myError();//display error message
-    
-        }
-        scan.close();
+              
+       
+                }catch(newException e) {
+                    System.out.println(e.getMessage());
+                    }
+
+
+                    }
+
+                    int arrs = persons.size();
+                    for(int b = 0; b < arrs ; b ++){
+                    System.out.println("Name: " + persons.get(b).getName() + "Age: " + persons.get(b).getAge());
+                        }
+                 
+             }else if(objectnumber < 0){
+
+                    System.out.println("You can't create an object with negative input integer!");
+                    System.out.println("===========================================");
+             }
+             
+             System.out.println("Do You Want To Continue(Y/N)");
+             choices = scan.next().charAt(0);
+        } while (choices == 'Y' || choices == 'y');
+      }
     }
 }
+    
+    
+
+
+
+
 
     
-  
+
     
