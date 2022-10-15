@@ -1,18 +1,11 @@
 public class Person {
-    private static int count ;
     private String name;
     private Integer age;
 
     public Person(String name, Integer age){
         this.name = name;
         this.age = age;
-        
-        count++;
     }
-
-    // public static void numberOfObjects(){
-    //     System.out.println("-------Create " + count + " objects-------");
-    // }
    
     public String getName(){
         return name;

@@ -5,13 +5,11 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import ggfilfder.Person;
 
 public class Main{
 
     public static void main(String args[]) {
         Scanner scan = new Scanner(System.in);
-        int capacity;
         char choices;
         boolean mainLoop = true;
         
