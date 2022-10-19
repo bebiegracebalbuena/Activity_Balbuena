@@ -22,7 +22,7 @@ public class Main_HashSet {
         numArray.add(10);
 
         while (true) {
-            System.out.println("Calculator Main Menu\n");
+            System.out.println("Main Menu\n");
             System.out.print("1.) Add\n");
             System.out.print("2.) Remove\n");
             System.out.print("3.) Display\n");
